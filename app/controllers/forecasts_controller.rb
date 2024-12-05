@@ -3,7 +3,10 @@ class ForecastsController < ApplicationController
 
   # GET /forecasts or /forecasts.json
   def index
-    @forecasts = []
+    data = []
+    data = OpenWeather::Client.new.one_call(lat: params['latitude'], lon: params['longitude'])['daily'] if params['latitude']&.present?
+
+    @forecasts = data
   end
 
   # GET /forecasts/1 or /forecasts/1.json
