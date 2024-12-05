@@ -2,6 +2,8 @@
 
 <h1>Forecasts</h1>
 
+<%= render "form" %>
+<%= turbo_stream_from "forecasts" %>
 <div id="forecasts">
   <% @forecasts.each do |forecast| %>
     <%= render forecast %>
@@ -11,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New forecast", new_forecast_path %>
+<%#= link_to "New forecast", new_forecast_path %>
