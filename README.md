@@ -36,3 +36,51 @@ To add keys to the Rails credentials store:
 rails credentials:edit --environment=development
 ```
 Please request code owner for secrete key
+
+## Usage
+
+### Weather Forecast
+- The application provides a global variable `forecast`, which contains:
+  - A 7-day weather forecast.
+  - Today's weather.
+- The forecast data is fetched using the `open_weather` gem to optimize performance.
+
+### Address Autocomplete
+- Integrated with the Google Places API for:
+  - Location search functionality.
+  - Address autocomplete for standardization.
+- A prebuilt Google Maps API template is used to enhance user experience and enable location-based search.
+
+## Installation
+
+1. **Clone the Repository**
+  ```bash
+  git clone <repository-url>
+  cd <repository-directory>
+  ```
+2. Install Dependencies
+  ```bash
+   bundle install
+  ```
+3. Set Up API Keys
+  - Add your OpenWeather and Google Places API keys to the Rails credentials store:
+  ```bash
+  rails credentials:edit --environment=development
+  ```
+4. Include the following keys(if not included):
+  ```bash
+  open_weather_api_key: <YOUR_API_KEY>
+  google_places_api_key: <YOUR_API_KEY>
+  ```
+5. Start the Rails Server
+  ```bash
+  rails server
+  ```
+6. Access the Application
+  - Open your browser and navigate to http://localhost:3000.
+
+Let me know if any refinements are needed!
+
+
+  
+
