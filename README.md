@@ -1,24 +1,38 @@
-# README
+# Weather and Places API Integration
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a Ruby on Rails application built with **Ruby 3.2.2** and **Rails 7.1.5**. It leverages external APIs for weather forecasting and address standardization without the need for Active Record models.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- **Weather Information**: 
+  - Utilizes the `open_weather` gem to fetch a 7-day forecast plus today's weather.
+  - The forecast data is stored in a global variable called `forecast` for quick access.
 
-* System dependencies
+- **Address Standardization**:
+  - Integrates with the Google Places API to enable location search and address autocomplete.
+  - A custom template is used for implementing the Google Maps API for seamless user experience.
 
-* Configuration
+## Dependencies
 
-* Database creation
+### Gems
+- **`open-weather-ruby-client`**: Provides weather forecast data.
+  - Documentation: [open-weather-ruby-client gem](https://github.com/dblock/open-weather-ruby-client)
 
-* Database initialization
+### APIs
+- **Google Places API**:
+  - Used for location search and address standardization.
+  - Documentation: [Google Places API](https://developers.google.com/maps/documentation/places)
 
-* How to run the test suite
+## Configuration
 
-* Services (job queues, cache servers, search engines, etc.)
+### API Keys
+Both the OpenWeather API and Google Places API require API keys for proper functionality. These keys are securely stored in the Rails secret key store. Ensure you have the following keys set up:
 
-* Deployment instructions
+- `OPEN_WEATHER_API_KEY`: For the `open_weather` gem.
+- `GOOGLE_PLACES_API_KEY`: For the Google Places API.
 
-* ...
+To add keys to the Rails credentials store:
+```bash
+rails credentials:edit --environment=development
+```
+Please request code owner for secrete key
