@@ -1,3 +1,6 @@
+<img width="836" alt="image" src="https://github.com/user-attachments/assets/ab5f7d28-5a4c-48f3-a3a2-7be22ce9817a">
+
+
 # Weather and Places API Integration
 
 This project is a Ruby on Rails application built with **Ruby 3.2.2** and **Rails 7.1.5**. It leverages external APIs for weather forecasting and address standardization without the need for Active Record models.
