@@ -10,7 +10,6 @@ export default class extends Controller {
   } 
 
   initMap() {
-    debugger
     this.autocomplete = new google.maps.places.Autocomplete(this.fieldTarget)
     this.autocomplete.setFields(['address_components', 'geometry', 'icon', 'name'])
     this.autocomplete.addListener('place_changed', this.placeChanged.bind(this))

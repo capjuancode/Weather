@@ -1,6 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Forecasts</h1>
+<h1 class='title'>Forecasts</h1>
 
 <%= render "form" %>
 <%= turbo_stream_from "forecasts" %>
@@ -8,28 +6,27 @@
 <div id="forecasts">
   <% forecast = @forecasts.first %>
   <div id="forecast-expanded" class="forecast-expanded">
-    <div class="forecast-expanded-content">
-      <div class="weather-header">
-        <h3><%= forecast['dt'].strftime('%A') %></h3>
-        <small><%= forecast["summary"] %></small>
+    <div class="weather-header">
+      <h3><%= forecast['dt'].strftime('%A') %></h3>
+      <small><%= forecast["summary"] %></small>
+    </div>
+    <div class="weather-main">
+      <img src="<%= forecast["weather"].first["icon_uri"] %>" alt="<%= forecast["weather"].first["description"] %> icon" class="weather-icon" />
+      <div class="temperature">
+        <div class="temp-max"><%= forecast["temp"]["max"] %>°F</div>
+        <div class="temp-min"><%= forecast["temp"]["min"] %>°F</div>
       </div>
+    </div>
 
-      <div class="weather-main">
-        <img src="<%= forecast["weather"].first["icon_uri"] %>" alt="<%= forecast["weather"].first["description"] %> icon" class="weather-icon-large" />
-        <div class="temperature">
-          <div class="temp-max"><%= forecast["temp"]["max"] %>°F</div>
-          <div class="temp-min"><%= forecast["temp"]["min"] %>°F</div>
-        </div>
-      </div>
-
-      <div class="weather-details">
-        <span><strong>Sunrise:</strong> <%= forecast["sunrise"].strftime("%I:%M %p") %></span>
-        <span><strong>Sunset:</strong> <%= forecast["sunset"].strftime("%I:%M %p") %></span>
-        <span><strong>Humidity:</strong> <%= forecast["humidity"] %>%</span>
-        <span><strong>Wind Speed:</strong> <%= forecast["wind_speed"] %> mph</span>
-        <span><strong>UV Index:</strong> <%= forecast["uvi"] %></span>
-        <span><strong>Rain:</strong> <%= forecast["rain"] %> mm</span>
-      </div>
+    <div class="weather-details">
+      <span><span class="detail-label">Sunrise:</span> <%= forecast["sunrise"].strftime("%I:%M %p") %></span>
+      <span><span class="detail-label">Sunset:</span> <%= forecast["sunset"].strftime("%I:%M %p") %></span>
+      <span><span class="detail-label">Humidity:</span> <%= forecast["humidity"] %>%</span>
+    </div>
+    <div class="weather-details">
+      <span><span class="detail-label">Wind:</span> <%= forecast["wind_speed"] %> mph</span>
+      <span><span class="detail-label">UV:</span> <%= forecast["uvi"] %></span>
+      <span><span class="detail-label">Rain:</span> <%= forecast["rain"] %> mm</span>
     </div>
   </div>
 
