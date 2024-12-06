@@ -28,8 +28,8 @@ This project is a Ruby on Rails application built with **Ruby 3.2.2** and **Rail
 ### API Keys
 Both the OpenWeather API and Google Places API require API keys for proper functionality. These keys are securely stored in the Rails secret key store. Ensure you have the following keys set up:
 
-- `OPEN_WEATHER_API_KEY`: For the `open_weather` gem.
-- `GOOGLE_PLACES_API_KEY`: For the Google Places API.
+- `open_weather_api_key`: For the `open_weather` gem.
+- `google_maps_api_key`: For the Google Places API.
 
 To add keys to the Rails credentials store:
 ```bash
