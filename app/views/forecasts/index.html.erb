@@ -5,12 +5,39 @@
 <%= render "form" %>
 <%= turbo_stream_from "forecasts" %>
 <div id="forecasts">
-  <% @forecasts.each do |forecast| %>
-    <%= render forecast %>
-    <p>
-      <%= link_to "Show this forecast", forecast %>
-    </p>
-  <% end %>
+  <% forecast = @forecasts.first %>
+  <div id="forecast-expanded" class="forecast-expanded">
+    <div class="forecast-expanded-content">
+      <div class="weather-header">
+        <h3><%= Time.parse(forecast['dt']).strftime('%A') %></h3>
+        <small><%= forecast["summary"] %></small>
+      </div>
+
+      <div class="weather-main">
+        <img src="<%= forecast["weather"].first["icon_uri"] %>" alt="<%= forecast["weather"].first["description"] %> icon" class="weather-icon-large" />
+        <div class="temperature">
+          <div class="temp-max"><%= forecast["temp"]["max"] %>°F</div>
+          <div class="temp-min"><%= forecast["temp"]["min"] %>°F</div>
+        </div>
+      </div>
+
+      <div class="weather-details">
+        <span><strong>Sunrise:</strong> <%= Time.parse(forecast["sunrise"]).strftime("%I:%M %p") %></span>
+        <span><strong>Sunset:</strong> <%= Time.parse(forecast["sunset"]).strftime("%I:%M %p") %></span>
+        <span><strong>Humidity:</strong> <%= forecast["humidity"] %>%</span>
+        <span><strong>Wind Speed:</strong> <%= forecast["wind_speed"] %> mph</span>
+        <span><strong>UV Index:</strong> <%= forecast["uvi"] %></span>
+        <span><strong>Rain:</strong> <%= forecast["rain"] %> mm</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="forecast-list">
+    <% @forecasts.each do |forecast| %>
+      <%= render partial: 'forecast', locals: {forecast: forecast} %>
+    <% end %>
+  </div>
 </div>
 
 <%#= link_to "New forecast", new_forecast_path %>
