@@ -1,5 +1,5 @@
-<%#= form_with(url: forecasts_path, method: :get) do |form| %>  
-<%= form_with(url: forecasts_path, 
+<%= form_with(scope: :forecast,
+              url: forecasts_path, 
               local: true, 
               method: :get,
               data: { controller: "places",

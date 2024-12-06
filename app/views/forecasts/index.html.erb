@@ -4,12 +4,13 @@
 
 <%= render "form" %>
 <%= turbo_stream_from "forecasts" %>
+<% if @forecasts.present? %>
 <div id="forecasts">
   <% forecast = @forecasts.first %>
   <div id="forecast-expanded" class="forecast-expanded">
     <div class="forecast-expanded-content">
       <div class="weather-header">
-        <h3><%= Time.parse(forecast['dt']).strftime('%A') %></h3>
+        <h3><%= forecast['dt'].strftime('%A') %></h3>
         <small><%= forecast["summary"] %></small>
       </div>
 
@@ -22,8 +23,8 @@
       </div>
 
       <div class="weather-details">
-        <span><strong>Sunrise:</strong> <%= Time.parse(forecast["sunrise"]).strftime("%I:%M %p") %></span>
-        <span><strong>Sunset:</strong> <%= Time.parse(forecast["sunset"]).strftime("%I:%M %p") %></span>
+        <span><strong>Sunrise:</strong> <%= forecast["sunrise"].strftime("%I:%M %p") %></span>
+        <span><strong>Sunset:</strong> <%= forecast["sunset"].strftime("%I:%M %p") %></span>
         <span><strong>Humidity:</strong> <%= forecast["humidity"] %>%</span>
         <span><strong>Wind Speed:</strong> <%= forecast["wind_speed"] %> mph</span>
         <span><strong>UV Index:</strong> <%= forecast["uvi"] %></span>
@@ -39,5 +40,6 @@
     <% end %>
   </div>
 </div>
+<% end %>
 
 <%#= link_to "New forecast", new_forecast_path %>
