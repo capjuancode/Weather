@@ -3,7 +3,9 @@ require "test_helper"
 class ForecastsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get forecasts_url
+    
     assert_response :success
+    assert @controller.view_assigns['forecasts'] == []
   end
 
   test "should renders index with forecasts" do
