@@ -1,4 +1,4 @@
-<img width="836" alt="image" src="https://github.com/user-attachments/assets/ab5f7d28-5a4c-48f3-a3a2-7be22ce9817a">
+<img width="746" alt="image" src="https://github.com/user-attachments/assets/039d2bbb-005a-45c1-a0fa-f16b9cc1617a">
 
 
 # Weather and Places API Integration
