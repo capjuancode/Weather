@@ -1,5 +1,6 @@
 class ForecastsController < ApplicationController
   before_action :set_forecasts, only: %i[index]
+  before_action :set_address, only: %i[index]
 
   # GET /forecasts or /forecasts.json
   # set_forecast is called
@@ -21,6 +22,10 @@ class ForecastsController < ApplicationController
     end
 
     @forecasts ||= []
+  end
+
+  def set_address
+    @address = forecast_params[:address]
   end
 
   # Only allow a list of trusted parameters through.

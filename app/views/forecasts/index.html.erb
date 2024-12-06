@@ -7,6 +7,7 @@
   <% forecast = @forecasts.first %>
   <div id="forecast-expanded" class="forecast-expanded">
     <div class="weather-header">
+      <h3><%= @address %></h3>
       <h3><%= forecast['dt'].strftime('%A') %></h3>
       <small><%= forecast["summary"] %></small>
     </div>
